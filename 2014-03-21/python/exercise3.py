@@ -4,13 +4,12 @@ from Esercizio1 import *
 
 #Costruisco il modello 3D della struttura
 
-base = PROD([fondamenta,Q(11.5)])
-frontalisxdx = PROD([sporgenzefrontalisxdx,Q(6)])
-primolivello = PROD([primopiano,Q(16.5)])
-secondolivello = PROD([secondopiano,Q(19.5)])
-rampeprimolivello = PROD([rampelateraliprimopiano,Q(13.5)])
+base = INSR(PROD)([QUOTE([-3,57.6]),QUOTE([-20,38.2]),Q(11.5)])
+frontalisxdx = INSR(PROD)([QUOTE([-17.8,12,-4,12]),QUOTE([-10,10]),Q(6)])
+primolivello = INSR(PROD)([QUOTE([-11,41.6]),QUOTE([-24,30.2]),Q(16.5)])
+secondolivello = INSR(PROD)([QUOTE([-19,25.6]),QUOTE([-28,22.2]),Q(19.5)])
+rampeprimolivello = INSR(PROD)([QUOTE([-19.8,10,-4,10]),QUOTE([-20,4]),Q(13.5)])
 
-#ziqq = STRUCT([base,frontalecentro,frontalisxdx,primolivello,rampeprimolivello,secondolivello])
 #VIEW(ziqq)
 
 #Accesso al punto di incrocio tra le scalinate
@@ -177,11 +176,17 @@ tempio = T([1,2,3])([28,49,19.5])(tempio)
 
 #Assemblo i pezzi e visualizzo
 
-ziqq = STRUCT([base,frontalecentro,frontalisxdx,primolivello,rampeprimolivello,secondolivello,scala1,scala2,scalalt1,scalalt2,scalaaccessosecondolvl,scalaaccessoterzolvl])
-ziggurat=STRUCT([ziqq,paretesxpt,paretedxpt,pareteretropt,paretedxprimopiano,paretesxprimopiano,pareteretroprimopiano,paretesxsecondopiano,paretedxsecondopiano,pareteretrosecondopiano])
+paretipianoterra = COLOR([0.9,0.95,0.3])(STRUCT([paretesxpt,paretedxpt,pareteretropt]))
+paretiprimopiano = COLOR([0.95,0.4,0.4])(STRUCT([paretedxprimopiano,paretesxprimopiano,pareteretroprimopiano]))
+paretisecondopiano = COLOR([0.95,0.4,0.4])(STRUCT([paretesxsecondopiano,paretedxsecondopiano,pareteretrosecondopiano]))
+scalepianoterra = COLOR([0.9,0.95,0.3])(STRUCT([scala1,scala2])) 
+scaleprimopiano = COLOR([0.95,0.4,0.4])(STRUCT([scalalt1,scalalt2,scalaaccessosecondolvl]))
+scalesecondopiano = COLOR([0.95,0.4,0.4])(scalaaccessoterzolvl)
+ziqq = STRUCT([COLOR([0.98,0.98,0.5])(base),COLOR([0.3,0.5,0.8])(frontalecentro),COLOR([0.98,0.98,0.5])(secondolivello),COLOR([0.98,0.98,0.5])(frontalisxdx),COLOR([0.98,0.98,0.5])(primolivello),COLOR([0.98,0.98,0.5])(rampeprimolivello)])
+ziggurat=STRUCT([ziqq,scalesecondopiano,scaleprimopiano,scalepianoterra,paretisecondopiano,paretiprimopiano,paretipianoterra])
 #Errore nel posizionamento della struttura.Ho considerato male le misure della scala, quindi
 #prima di aggiungere questa ho traslato sulle Y tutta la struttura
 ziggurat = T([2])([13.8])(ziggurat)
-ziggurat = STRUCT([ziggurat,scala3,tempio])
+ziggurat = STRUCT([ziggurat,COLOR([0.9,0.95,0.3])(scala3),COLOR([0.3,0.5,0.8])(tempio)])
 
 VIEW(ziggurat)
