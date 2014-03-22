@@ -31,6 +31,9 @@ rampelateralipianoterra = PROD([QUOTE([-3,25.8,-6,25.8]),QUOTE([-16,4])])
 #Creo la rampa centrale al piano terra
 rampacentralepianoterra = PROD([QUOTE([-29.8,4]),QUOTE([15])]) 
 
+#Creo il tempo visto dall'alto
+tempio = PROD([QUOTE([-27.8,8]),QUOTE([-35.1,8])])
+
 #COLORAZIONE
 fondamenta = COLOR(RED)(fondamenta)
 sporgenzefrontalisxdx = COLOR(BLUE)(sporgenzefrontalisxdx)
@@ -38,10 +41,18 @@ sporgenzafrontalecentro = COLOR(BLACK)(sporgenzafrontalecentro)
 primopiano = COLOR(GREEN)(primopiano)
 secondopiano = COLOR(YELLOW)(secondopiano)
 rampelateraliprimopiano = COLOR(BROWN)(rampelateraliprimopiano)
+tempio = COLOR(BLACK)(tempio)
 #Qui utilizzo T()()() per traslare leggermente in z le rampe, in quanto
 #il colore viene coperto (non sono riuscito a trovare una soluzione)
 rampelateralipianoterra = COLOR(ORANGE)(T([3])([0.3])(rampelateralipianoterra))
 rampacentralepianoterra = COLOR(ORANGE)(rampacentralepianoterra)
 
-floors = STRUCT([fondamenta,sporgenzefrontalisxdx,sporgenzafrontalecentro,primopiano,secondopiano,rampelateraliprimopiano,rampacentralepianoterra,rampelateralipianoterra])
-#VIEW(floors)
+floor0 = T([3])([11.5])(STRUCT([fondamenta,sporgenzefrontalisxdx,sporgenzafrontalecentro,rampelateralipianoterra,rampacentralepianoterra]))
+
+floor1 = T([3])([16.5])(STRUCT([primopiano,rampelateraliprimopiano]))
+
+floor2 = T([3])([19.5])(STRUCT([secondopiano,tempio])) 
+
+floors25D = STRUCT([floor0,floor1,floor2])
+floors25D = R([2,3])(3*PI/2)(floors25D)
+#VIEW(floors25D)

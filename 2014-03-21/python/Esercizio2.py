@@ -1,4 +1,5 @@
 from pyplasm import *
+from Esercizio1 import *
 
 #Definisco la faccia nord della ziggurat  X,Z
 
@@ -105,6 +106,12 @@ est = STRUCT([frontefondamenta,fronteprimopiano,frontesecondopiano,tempio,scalaf
 # Aggrego le facciate in un unica struttura 2.5D
 
 est = R([1,3])(3*PI/2)(est)
-aggregato = STRUCT([T([3])(58.2)(nord),sud,T([1,3])([57.6,58.2])(est),R([1,3])(PI/2)(ovest)])
+facciate25D = STRUCT([T([3])(38)(nord),sud,T([1,3])([57.6,58.2])(est),R([1,3])(PI/2)(ovest)])
+#VIEW(facciate25D)
 
-VIEW(aggregato)
+#Creo il mockup 3D: prendo la pianta della struttura vista dall'alto e la aggrago 
+# con le facciate 
+
+mockup_3D = STRUCT([facciate25D,T([1,3])([-3,58])(floors25D)])
+
+VIEW(mockup_3D)

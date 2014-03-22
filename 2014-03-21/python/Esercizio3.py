@@ -139,7 +139,41 @@ pareteretrosecondopiano = T([1,2,3])([19.2,53.5,0.35])(pareteretrosecondopiano)
 
 #Aggiungo il tempio in cima
 
+#entrata ad arco
+def cerchio (p):
+    u,v = p
+    return v*COS(u), v*SIN(u)
 
+domain2D = PROD([INTERVALS(PI)(32),INTERVALS(1)(3)])
+semicirc = MAP(cerchio)(domain2D);
+semicirc = T([1])([4])(semicirc)
+
+#facciata con arco
+facciata = PROD([Q(8),Q(3)])
+facciata = DIFFERENCE([facciata,semicirc])
+facciata = PROD([facciata,Q(1)])
+
+#pareti
+psx = PROD([Q(1),QUOTE([-1,7])])
+pdx = PROD([QUOTE([-7,1]),QUOTE([-1,7])])
+pbk = PROD([QUOTE([-1,6]),QUOTE([-7,1])])
+fsx = PROD([QUOTE([3,-2,3]),Q(1)])
+
+psx = PROD([psx,Q(7)])
+pdx = PROD([pdx,Q(7)])
+pbk = PROD([pbk,Q(7)])
+fsx = PROD([fsx,Q(5)])
+
+facciata = R([2,3])(PI/2)(facciata)
+facciata = T([2,3])([1,5])(facciata)
+
+tetto = PROD([Q(8),QUOTE([-1,7])])
+tetto = PROD([tetto,Q(1)])
+tetto = T([3])([7])(tetto)
+
+tempio = STRUCT([psx,pdx,pbk,fsx,facciata,tetto])
+tempio = S(3)(0.8)(tempio)
+tempio = T([1,2,3])([28,49,19.5])(tempio)
 
 #Assemblo i pezzi e visualizzo
 
@@ -148,6 +182,6 @@ ziggurat=STRUCT([ziqq,paretesxpt,paretedxpt,pareteretropt,paretedxprimopiano,par
 #Errore nel posizionamento della struttura.Ho considerato male le misure della scala, quindi
 #prima di aggiungere questa ho traslato sulle Y tutta la struttura
 ziggurat = T([2])([13.8])(ziggurat)
-ziggurat = STRUCT([ziggurat,scala3])
+ziggurat = STRUCT([ziggurat,scala3,tempio])
 
 VIEW(ziggurat)
