@@ -131,12 +131,10 @@ stradepzaziggurat = COLOR([0.9,0.95,0.3])(stradepzaziggurat)
 stradepzmag = COLOR([0.9,0.95,0.3])(stradepzmag)
 circ = COLOR([0.9,0.95,0.3])(circ)
 
-zona_ziggurat = STRUCT([murapzazigg,stradepzmag,magazzino,murapzact,murapzmag,circ,T([1,2])([13.2,9])(ziggurat),stradepzaziggurat])
-zona_ziggurat = STRUCT([T([1,2])([100,100])(zona_ziggurat),terreno,raccolta])
+small_area_plan = STRUCT([murapzazigg,stradepzmag,magazzino,murapzact,murapzmag,circ,T([1,2])([13.2,9])(ziggurat),stradepzaziggurat])
+small_area_plan = STRUCT([T([1,2])([100,100])(small_area_plan),terreno,raccolta])
 
-
-
-VIEW(zona_ziggurat)
+VIEW(small_area_plan)
 
 
 

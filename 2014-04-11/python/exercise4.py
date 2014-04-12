@@ -264,7 +264,7 @@ section = BEZIER(S2)([c1, c0])
 dom2D = PROD(AA(dom)([n2, 1]))
 
 domain = PROD([dom2D, S(1)(2*PI)(dom1D)])
-vaso = COLOR([0.48,0.4,0.08])(MAP(ROTATIONALSOLID(section))(domain))
+vaso = COLOR([0.85,0.45,0.1])(MAP(ROTATIONALSOLID(section))(domain))
 
 #vaso su centro di raccolta
 vasocracc = T([1,2])([92,156])(vaso)
@@ -277,6 +277,6 @@ vasi = STRUCT([vasocracc,STRUCT(vasimag)])
 
 #composizione elementi e stampa
 
-ziggurat_arricchita = STRUCT([zona_ziggurat,T([1,2])([100,100])(aiuola),vigneto,vasi])
+urban_fittings = STRUCT([small_area_plan,T([1,2])([100,100])(aiuola),vigneto,vasi])
 
-VIEW(ziggurat_arricchita)
+VIEW(urban_fittings)
