@@ -2,7 +2,7 @@ from pyplasm import *
 from scipy import *
 from larcc import *
 
-'''Il ragionamento seguito e' il seguente: a seguito di un merge di un digramma in una 
+'''Il ragionamento seguito e' il seguente: a seguito di un merge di un diagramma in una 
    cella n, ogni cella del nuovo diagramma viene enumerata partendo dal numero di cella massimo,
    nel master, al momento dell'inserimento. Quindi prima di fare un merge, si salva 
    il numero di cella massimo, che verra' poi utilizzato per aggiornare il toRemove
