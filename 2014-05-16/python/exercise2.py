@@ -1,5 +1,5 @@
 from larcc import *
-from exercise01 import *
+from exercise1 import *
 
 DRAW = COMP([VIEW,STRUCT,MKPOLS])
 
