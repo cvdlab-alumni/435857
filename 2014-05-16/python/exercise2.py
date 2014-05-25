@@ -3,284 +3,229 @@ from exercise1 import *
 
 DRAW = COMP([VIEW,STRUCT,MKPOLS])
 
-#Utilizzo il modello precedente, modificandolo leggermente per costruire la casa di fronte 
-toRemove = [24]
-master2 = master2[0],[cell for k,cell in enumerate(master2[1]) if not (k in toRemove)]  
+master2 = S(1)(-1)(master)
 
-toMerge = 3
-diagram = assemblyDiagramInit([1,3,2])([[.1],[.4,1.2,.4],[2,.7]])
-master2 = diagram2cell(diagram,master2,toMerge)
-
-toRemove = [172]
-master2 = master2[0],[cell for k,cell in enumerate(master2[1]) if not (k in toRemove)]  
-#DRAW(master2)
-
-toMerge = 34
-diagram = assemblyDiagramInit([3,1,2])([[.5,1,.5],[.1],[2,.7]])
-master2 = diagram2cell(diagram,master2,toMerge)
-
-toRemove = [176]
-master2 = master2[0],[cell for k,cell in enumerate(master2[1]) if not (k in toRemove)]  
-#DRAW(master2)
-
-toMerge = 53
-diagram = assemblyDiagramInit([3,1,2])([[1.5,1,.5],[.1],[2,.7]])
-master2 = diagram2cell(diagram,master2,toMerge)
-
-toRemove = [180]
-master2 = master2[0],[cell for k,cell in enumerate(master2[1]) if not (k in toRemove)]  
-#DRAW(master2)
-
-toMerge = 72
-diagram = assemblyDiagramInit([3,1,2])([[1,1,1],[.1],[2,.7]])
-master2 = diagram2cell(diagram,master2,toMerge)
-
-toRemove = [184]
-master2 = master2[0],[cell for k,cell in enumerate(master2[1]) if not (k in toRemove)]  
-#DRAW(master2)
-
-toMerge = 93
-diagram = assemblyDiagramInit([3,1,2])([[1.25,1.5,1.25],[.1],[2,.7]])
-master2 = diagram2cell(diagram,master2,toMerge)
-
-toRemove = [188]
-master2 = master2[0],[cell for k,cell in enumerate(master2[1]) if not (k in toRemove)]  
-#DRAW(master2)
-
-toMerge = 100
-diagram = assemblyDiagramInit([1,3,3])([[.1],[1.2,.6,1.2],[1,1,.7]])
-master2 = diagram2cell(diagram,master2,toMerge)
-
-toRemove = [194]
-master2 = master2[0],[cell for k,cell in enumerate(master2[1]) if not (k in toRemove)]  
-#DRAW(master2)
-
-#appartamento_sx = SKEL_1(STRUCT(MKPOLS(master2)))
-#appartamento_sx = cellNumbering (master2,appartamento_sx)(range(len(master2[1])),CYAN,.5)
-#VIEW(appartamento_sx)
-
-#COLORAZIONE
-master2 = MKPOLS(master2)
-master2[13] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[13])
-master2[32] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[32])
-master2[16] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[16])
-master2[34] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[34])
-master2[25] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[25])
-master2[22] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[22])
-master2[40] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[40])
-master2[51] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[51])
-master2[53] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[53])
-master2[70] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[70])
-master2[72] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[72])
-master2[78] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[78])
-master2[93] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[93])
-master2[91] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[91])
-master2[94] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[94])
-master2[95] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[95])
-master2[59] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(master2[59])
-
-master2[74] = COLOR(Color4f([(1),(0.45),(0)]))(master2[74])
-master2[66] = COLOR(Color4f([(1),(0.45),(0)]))(master2[66])
-master2[55] = COLOR(Color4f([(1),(0.45),(0)]))(master2[55])
-master2[47] = COLOR(Color4f([(1),(0.45),(0)]))(master2[47])
-master2[36] = COLOR(Color4f([(1),(0.45),(0)]))(master2[36])
-master2[28] = COLOR(Color4f([(1),(0.45),(0)]))(master2[28])
-master2[18] = COLOR(Color4f([(1),(0.45),(0)]))(master2[18])
-master2[75] = COLOR(Color4f([(1),(0.45),(0)]))(master2[75])
-master2[56] = COLOR(Color4f([(1),(0.45),(0)]))(master2[56])
-master2[37] = COLOR(Color4f([(1),(0.45),(0)]))(master2[37])
-master2[19] = COLOR(Color4f([(1),(0.45),(0)]))(master2[19])
-master2[10] = COLOR(Color4f([(1),(0.45),(0)]))(master2[10])
-master2[9] = COLOR(Color4f([(1),(0.45),(0)]))(master2[9])
-master2[29] = COLOR(Color4f([(1),(0.45),(0)]))(master2[29])
-master2[48] = COLOR(Color4f([(1),(0.45),(0)]))(master2[48])
-master2[67] = COLOR(Color4f([(1),(0.45),(0)]))(master2[67])
-
-taken = [74,66,55,47,36,28,18,75,56,37,19,10,
-		 9,29,48,67,13,32,16,34,25,22,40,51,53, 
-		 70,72,78,93,91,94,95,59]
-
-
-left = [cell for cell,k in enumerate(master2) if not (cell in taken)]
-
-for x in left :
-	master2[x] = COLOR(Color4f([(1),(0.9),(0.80)]))(master2[x])
-
-
-#----------------------------------------------------------------#
-
-#PIANO TERRA
-
-master_hpc = STRUCT(master)
-master2_hpc = STRUCT(master2)
-
-base = PROD([Q(36),Q(9)])
+base = PROD([QUOTE([-16,8]),Q(8.8)])
 base = PROD([base,Q(0.3)])
 
-apertura = PROD([QUOTE([-17,2]),QUOTE([-2.7,5])])
+apertura = PROD([QUOTE([-17.5,5]),QUOTE([-7,1.5])])
 
 base = DIFFERENCE([base,PROD([apertura,Q(0.3)])])
 
+#aggiungo corrimano alla base
+p_c = [[0,0],[0.5,0],[0.5,0.1],[0,0.1]]
+c_c = [[1,2,3,4]];
+pil = T([1])([0.2])(CUBOID([0.1,1.6,0.1]))
+corrim = MKPOL([p_c,c_c,None])
+corrim = T([2])([1.6])(PROD([corrim,Q(0.1)]))
+corrimano = STRUCT([corrim,pil])
+corrimano_p = STRUCT(NN(10)([corrimano,T([1])([0.5])]))
+corrimano_p = MAP([S1,S3,S2])(corrimano_p)
+corrimano_p = T([1,2])([17.5,6.8])(corrimano_p)
+base = STRUCT([corrimano_p,base])
+
+#aggiungo parete centrale alla base, e vi inserisco una finestra
+
+parete = assemblyDiagramInit([3,1,3])([[2,2,4],[0.3],[1.9,.6,.2]])
+
+toMerge = 4
+diagram = assemblyDiagramInit([3,4,3])([[.1,1.8,.1],[0.05,0.1,0.05,0.1],[.1,.4,.1]])
+parete = diagram2cell(diagram,parete,toMerge)
+
+toRemove = [41,42,43,17,18,19,29,30,31,27,21]
+parete = parete[0],[cell for k,cell in enumerate(parete[1]) if not (k in toRemove)]  
+
+parete = MKPOLS(parete) #parete portone
+
+parete[20] = MATERIAL([1,1,1,0.1,0,0,0.8,0.5,1,1,1,0.1,1,1,1,0.2,100])(parete[20])	
+for x in [0,1,2,3,4,5,6,7] :
+	parete[x] = COLOR(Color4f([(1),(0.9),(0.80)]))(parete[x])
+left = [cell for cell,k in enumerate(parete) if not (cell in [0,1,2,3,4,5,6,7,20])]
+for x in left :
+	parete[x] = COLOR(Color4f([0.52,0.25,0.05]))(parete[x])	
+
+parete = STRUCT(parete)
+parete = T([1,2,3])([16,8.5,0.3])(parete)
+
+#aggiungo finestra sulla parete
+
+
+#aggiungo parete lato ascensore
+parete_l_a = assemblyDiagramInit([3,1,2])([[3.7,.6,3.7],[0.3],[1.8,.9]])
+toRemove = [2]
+parete_l_a = parete_l_a[0],[cell for k,cell in enumerate(parete_l_a[1]) if not (k in toRemove)]  
+parete_l_a = STRUCT(MKPOLS(parete_l_a))
+parete_l_a = T([1,3])([16,0.3])(parete_l_a)
+base = STRUCT([base,parete_l_a])
+
 #Colorazione Base
-base = COLOR(Color4f([(1),(0.6),(0)]))(base)
+base = COLOR(Color4f([(1),(0.9),(0.80)]))(base)
+base = STRUCT([base,parete])
+piano = STRUCT([master,base,T([1])(40)(master2)])
 
-piano = STRUCT([master_hpc,base,T([1])(20)(master2_hpc)])
+piani = STRUCT(NN(5)([piano,T([3])([3])]))
 
-piani = STRUCT(NN(4)([piano,T([3])([3.5])]))
-piani = T([1,3])([5,3])(piani)
-
+#SCALE
+pedata = 0.5 # pedata 
+alzata = 0.3 # alzata  
+p = [[0,0],[pedata,0.3],[pedata,0.3+alzata],[0,0.3+alzata]];
+c = [[1,2,3,4]];
+scalino = MKPOL([p,c,None]);
+scalinoEstruso = PROD([scalino,Q(1.5)]);
+#aggiungo corrimano 
+p_c = [[0,0],[pedata,0.3],[pedata,0.4],[0,0.1]]
+c_c = [[1,2,3,4]];
+pil = T([1])([0.2])(CUBOID([0.1,1.2,0.1]))
+corrim = MKPOL([p_c,c_c,None])
+corrim = T([2])([1])(PROD([corrim,Q(0.1)]))
+corrimano = STRUCT([corrim,pil])
+corrimano = T([2,3])([0.3+alzata,0.1])(corrimano)
+scalinoEstruso = STRUCT([scalinoEstruso,corrimano])
+scalini = STRUCT(NN(10)([scalinoEstruso,T([1,2])([pedata,0.3])]));
+#scambio assi
+scalinir = MAP([S1,S3,S2])(scalini);
+stairs1 = T([1,2])([17.5,7])(scalinir);
+scale = STRUCT(NN(4)([stairs1,T([3])([3])]))
+scale = COLOR(Color4f([(1),(0.9),(0.80)]))(scale)
+piani = STRUCT([piani,scale])
 
 #Base piano terra
 
-dom = INTERVALS(1)(32)
-b1 = BEZIER(S1)([[0,16],[0,0],[8,0],[8,16],[16,16],[16,0],[24,0],[24,16],[32,16],[32,0],[40,0],[40,16]])
-b2 = BEZIER(S1)([[0,16],[0,32],[8,32],[8,16],[16,16],[16,32],[24,32],[24,16],[32,16],[32,32],[40,32],[40,16]])
+#pareti piano terra
+parete_1 = assemblyDiagramInit([1,1,1])([[.3],[8.8],[2.7]])
+parete_2 = assemblyDiagramInit([3,1,2])([[19.7,.6,19.7],[0.3],[1.8,.9]])
+toRemove = [2]
+parete_2 = parete_2[0],[cell for k,cell in enumerate(parete_2[1]) if not (k in toRemove)]  
+parete_4 = assemblyDiagramInit([1,1,1])([[40],[0.3],[2.7]])
 
-b1 = MAP(b1)(dom)
-b2 = MAP(b2)(dom)
+parete_1 = STRUCT(MKPOLS(parete_1)) #parete retro
+parete_2 = STRUCT(MKPOLS(parete_2)) #parete ascensore
+parete_4 = STRUCT(MKPOLS(parete_4)) #parete fronte
 
-base = SOLIDIFY(STRUCT([b1,b2]))
-base = PROD([base,Q(.3)])
+parete_1 = T([1])([39.7])(parete_1)
+parete_4 = T([2])([8.5])(parete_4)
 
-base = T([1,2])([3,-12])(base)
-base = COLOR(Color4f([0.48,0.5,0.55]))(base)
+pareti_base = STRUCT([parete_1,parete_2,parete_4])
+pareti_base = COLOR(Color4f([(1),(0.9),(0.80)]))(pareti_base)
 
-ground_floor = STRUCT([piani,base])
+#costruisco la parete lato portone a parte
+parete_3 = assemblyDiagramInit([1,3,2])([[.3],[3.4,2,3.4],[2,.7]])
+toMerge = 2
+diagram = assemblyDiagramInit([4,6,3])([[0.05,0.1,0.05,0.1],[0.2,0.6,0.2,0.2,0.6,0.2],[0.2,1.6,0.2]])
+parete_3 = diagram2cell(diagram,parete_3,toMerge)
 
-#SCALE
+toRemove = [22,19,16,13,10,7,21,18,15,12,9,6,20,17,14,11,8,5,27,63,36,72]
+parete_3 = parete_3[0],[cell for k,cell in enumerate(parete_3[1]) if not (k in toRemove)]  
 
-pedata = 0.34 # pedata 
-alzata = 3.6/20 # alzata  
-p = [[0,0],[pedata,0.2],[pedata,0.2+alzata],[0,0.2+alzata]];
-c = [[1,2,3,4]];
-scalino = MKPOL([p,c,None]);
-scalinoEstruso = PROD([scalino,Q(2)]);
-scalini = STRUCT(NN(15)([scalinoEstruso,T([1,2])([pedata,0.2])]));
-#scambio assi
-scalinir = MAP([S3,S1,S2])(scalini);
-stairs1 = T([1,2])([22,2.7])(scalinir);
+parete_3 = MKPOLS(parete_3) #parete portone
+parete_3[34] = MATERIAL([1,1,1,0.1,0,0,0.8,0.5,1,1,1,0.1,1,1,1,0.2,100])(parete_3[34])	
+parete_3[25] = MATERIAL([1,1,1,0.1,0,0,0.8,0.5,1,1,1,0.1,1,1,1,0.2,100])(parete_3[25])	
 
-pedata_2 = 0.30 # pedata 
-alzata_2 = 3.6/20 # alzata  
-p_2 = [[0,0],[pedata_2,0.2],[pedata_2,0.2+alzata_2],[0,0.2+alzata_2]];
-c_2 = [[1,2,3,4]];
-scalino_2 = MKPOL([p_2,c_2,None]);
-scalinoEstruso_2 = PROD([scalino_2,Q(2)]);
-scalini_2 = STRUCT(NN(18)([scalinoEstruso_2,T([1,2])([pedata_2,0.2])]));
+left = [cell for cell,k in enumerate(parete_3) if not (cell in [34,25,0,1,2,3,4])]
+for x in left :
+	parete_3[x] = COLOR(Color4f([0.52,0.25,0.05]))(parete_3[x])	
+for x in [0,1,2,3,4] :
+	parete_3[x] = COLOR(Color4f([(1),(0.9),(0.80)]))(parete_3[x])
 
-scalinir_2 = MAP([S3,S1,S2])(scalini_2);
+pomello_sx = T([1,2,3])([.02,4.5,1])(pomello)
+pomello_dx = T([1,2,3])([.02,4.3,1])(pomello)
 
-stairs2 = T([1,2,3])([22,2.7,3])(scalinir_2)
-stairs3 = T([3])([3.5])(stairs2)
-stairs4 = T([3])([3.5])(stairs3)
+parete_3 = STRUCT(parete_3)
+parete_3 = STRUCT([parete_3,pomello_sx,pomello_dx])
 
-stairs = STRUCT([stairs1,stairs2,stairs3,stairs4])
+pareti_base = STRUCT([pareti_base,parete_3])
 
-stairs = COLOR(Color4f([1,0.8,0]))(stairs)
+pareti_base = T([1,2,3])([3,3,.9])(pareti_base)
+#fine pareti base
 
-ground_floor = STRUCT([ground_floor,stairs])
-#VIEW(STRUCT([ground_floor,stairs]))
+#piano terra
 
-#ASCENSORE
+piano_terra_1 = PROD([Q(46),Q(14.8)])
+piano_terra_1 = PROD([piano_terra_1,Q(0.3)])
+piano_terra_2 = PROD([Q(44),Q(12.8)])
+piano_terra_2 = PROD([piano_terra_2,Q(0.3)])
+piano_terra_2 = T([1,2,3])([1,1,.3])(piano_terra_2)
+piano_terra_3 = PROD([Q(42),Q(10.8)])
+piano_terra_3 = PROD([piano_terra_3,Q(0.3)])
+piano_terra_3 = T([1,2,3])([2,2,.6])(piano_terra_3)
 
-diagram = assemblyDiagramInit([5,3,3])([[.2,.25,.6,.25,.2],[0.2,1.5,0.2],[0.3,1.8,0.4]])
+piano_base_ascensore = PROD([Q(2.2),Q(1)])
+piano_base_ascensore = T([1,2,3])([21.9,1,.6])(PROD([piano_base_ascensore,Q(0.3)]))
+piano_base_ascensore = COLOR(Color4f([(1),(0.9),(0.80)]))(piano_base_ascensore)
+piano_terra = STRUCT([piano_terra_1,piano_terra_2,piano_terra_3,piano_base_ascensore])
 
-toRemove = [14,23,32,13,22,31,25]
-diagram = diagram[0],[cell for k,cell in enumerate(diagram[1]) if not (k in toRemove)]  
-
-tromba_asc = STRUCT(MKPOLS(diagram))
-
-tromba_asc = COLOR(Color4f([0.92,0.4,0.32]))(tromba_asc)
-
-ground_floor = STRUCT([ground_floor,T([1,2])([22.25,-1.9])(tromba_asc)])
-
-diagram = assemblyDiagramInit([5,3,3])([[.2,.25,.6,.25,.2],[0.2,1.5,0.2],[0.3,1.8,0.9]])
-
-toRemove = [14,23,32,13,22,31,25,21]
-diagram = diagram[0],[cell for k,cell in enumerate(diagram[1]) if not (k in toRemove)]  
-
-tromba_asc = STRUCT(MKPOLS(diagram))
-tromba_asc = T([1,2,3])([22.25,-1.9,3])(tromba_asc)
-tromba_asc = STRUCT(NN(4)([tromba_asc,T([3])([3.5])]))
-#VIEW(STRUCT([ground_floor,tromba_asc]))
-
-tromba_asc = COLOR(Color4f([0.92,0.4,0.32]))(tromba_asc)
-ground_floor = STRUCT([ground_floor,tromba_asc])
-
-
-#-----------------------------------------------------------#
+ground_floor = STRUCT([piano_terra,pareti_base])
 
 #colonne portanti edificio
 
-model = larRod(.25,3)([32,1])
+model = larRod(.5,2.7)([32,1])
 model = STRUCT(MKPOLS(model))
 
-colonna1 = T([1,2])([38,8])(model)
+colonna_ingresso_1 = T([1,2,3])([4,10.8,.9])(model)
+colonna_ingresso_2 = T([1,2,3])([4,4,.9])(model)
+colonna_ingresso_3 = T([1,2,3])([42,10.8,.9])(model)
+colonna_ingresso_4 = T([1,2,3])([42,4,.9])(model)
+colonna_ingresso_5 = T([1,2,3])([13.5,10.8,.9])(model)
+colonna_ingresso_6 = T([1,2,3])([13.5,4,.9])(model)
+colonna_ingresso_7 = T([1,2,3])([32.5,10.8,.9])(model)
+colonna_ingresso_8 = T([1,2,3])([32.5,4,.9])(model)
 
-colonna1 = STRUCT(NN(6)([colonna1,T([1])([-6])]))
-colonna2 = T([2])([-7])(colonna1)
-#VIEW(STRUCT([ground_floor,colonna1,colonna2]))
+ground_floor = STRUCT([ground_floor,colonna_ingresso_1,colonna_ingresso_2,colonna_ingresso_3,
+					   colonna_ingresso_4,colonna_ingresso_5,colonna_ingresso_6,colonna_ingresso_7,
+					   colonna_ingresso_8])
+ground_floor = COLOR(Color4f([0.48,0.5,0.55]))(ground_floor)
+#scala piano terra
+scala_pt = T([1,2,3])([20.5,10,.6])(scalinir)
+scala_pt = COLOR(Color4f([(1),(0.9),(0.80)]))(scala_pt)
+ground_floor = STRUCT([ground_floor,scala_pt])
 
-ground_floor = STRUCT([ground_floor,colonna1,colonna2])
+#ASCENSORE
 
+diagram = assemblyDiagramInit([7,4,4])([[.3,.1,.4,.6,.4,.1,.3],[.3,.1,1.5,.1],[.1,1.7,1.1,.1]])
 
-#balconi
+#tromba con ascensore
+toRemove = [45,61,77,41,57,73,42,58,74]
+diagram1 = diagram[0],[cell for k,cell in enumerate(diagram[1]) if not (k in toRemove)]  
+diagram1 = MKPOLS(diagram1)
+celle_ascensore = [40,53,66,24,79,25,80,37,50,63,
+				   81,26,38,51,64,41,54,67]
 
-pannello = PROD([Q(0.1),Q(2.5)])
-pannello = PROD([pannello,Q(2.7)])
+for x in celle_ascensore: diagram1[x] = COLOR(Color4f([(0.35),(0.12),(0.15)]))(diagram1[x])
+left = [cell for cell,k in enumerate(diagram1) if not (cell in celle_ascensore)]
 
-pannello = T([1,2,3])([25,6.5,3.3])(pannello)
-pannello2 = T([3])([3.5])(pannello)
-pannello3 = T([3])([3.5])(pannello2)
-pannello4 = T([3])([3.5])(pannello3)
+for x in left :
+	diagram1[x] = COLOR(Color4f([(1),(0.9),(0.80)]))(diagram1[x])	
+asc_base = STRUCT(diagram1)
 
-pannelli = STRUCT([pannello,pannello2,pannello3,pannello4])
-pannelli = COLOR(Color4f([(1),(0.9),(0.80)]))(pannelli)
+#tromba senza ascensore
+toRemove = [27,43,59,75,91,23,39,55,71,87,90,21,20,
+			74,58,42,26,25,41,57,73,89,24,40,56,84,
+			72,88,44,60,76,28,92,93,29,45,61,77,22,
+			36,52,68,37,53,69,38,54,60,70,85,86]
+diagram2 = diagram[0],[cell for k,cell in enumerate(diagram[1]) if not (k in toRemove)]  
+diagram2 = MKPOLS(diagram2)
+for x in range(len(diagram2)): diagram2[x] = COLOR(Color4f([(1),(0.9),(0.80)]))(diagram2[x])
+asc_mid = STRUCT(diagram2)
 
-ground_floor = STRUCT([ground_floor,pannelli])
+#tromba senza ascensore cima
+toRemove = [90,21,20,
+			74,58,42,26,25,41,57,73,89,24,40,56,84,
+			72,88,44,60,76,28,92,93,29,45,61,77,22,
+			36,52,68,37,53,69,38,54,60,70,85,86]
+diagram3 = diagram[0],[cell for k,cell in enumerate(diagram[1]) if not (k in toRemove)]  
+diagram3 = MKPOLS(diagram3)
+for x in range(len(diagram3)): diagram3[x] = COLOR(Color4f([(1),(0.9),(0.80)]))(diagram3[x])
+asc_top = STRUCT(diagram3)
 
-davanzale = PROD([Q(12.2),Q(.2)])
-davanzale = PROD([davanzale,Q(.2)])
+asc_base = T([1,2,3])([21.9,1,.9])(asc_base)
+asc_mid = T([1,2,3])([21.9,1,3.9])(asc_mid)
+asc_mid = STRUCT(NN(4)([asc_mid,T([3])([3])]))
+asc_top = T([1,2,3])([21.9,1,15.9])(asc_top)
+ascensore = STRUCT([asc_top,asc_mid,asc_base])
+ground_floor = STRUCT([ground_floor,ascensore])
 
-colonnine = PROD([Q(.2),Q(.1)])
-colonnine = PROD([colonnine,Q(1)])
-
-colonnine = T([2])([0.05])(STRUCT(NN(29)([colonnine,T([1])(0.4)])))
-
-davanzale = STRUCT([colonnine,T([3])([1])(davanzale)])
-davanzale = COLOR(Color4f([(1),(0.6),(0)]))(davanzale)
-
-davanzale1 = T([1,2,3])([25.1,8.6,3.3])(davanzale)
-davanzale2 = T([3])([3.5])(davanzale1)
-davanzale3 = T([3])([3.5])(davanzale2)
-davanzale4 = T([3])([3.5])(davanzale3)
-
-davanzali_sx = STRUCT([davanzale1,davanzale2,davanzale3,davanzale4])
-davanzali_dx = T([1])(-20)(davanzali_sx)
-
-davanzale_ang = PROD([Q(.2),Q(2.3)])
-davanzale_ang = PROD([davanzale_ang,Q(.2)])
-
-colonnine_ang = PROD([Q(.1),Q(.2)])
-colonnine_ang = PROD([colonnine_ang,Q(1)])
-
-colonnine_ang = T([1])([0.05])(STRUCT(NN(6)([colonnine_ang,T([2])(0.4)])))
-
-davanzale_ang = STRUCT([colonnine_ang,T([3])([1])(davanzale_ang)])
-
-davanzale_ang = T([1,2,3])([5,6.5,3.3])(davanzale_ang)
-davanzale_ang2 = T([3])([3.5])(davanzale_ang)
-davanzale_ang3 = T([3])([3.5])(davanzale_ang2)
-davanzale_ang4 = T([3])([3.5])(davanzale_ang3)
-
-davanzale_ang = STRUCT([davanzale_ang,davanzale_ang2,davanzale_ang3,davanzale_ang4])
-davanzale_ang = COLOR(Color4f([(1),(0.6),(0)]))(davanzale_ang)
-
-
-ground_floor = STRUCT([ground_floor,davanzali_sx,davanzali_dx,davanzale_ang])
 
 #Arricchimento piano terra: cassette della posta e vasi
-
 diagram = assemblyDiagramInit([3,3,3])([[.02,.16,.02],[.02,.16,.02],[.02,.16,.02]])
 
 toRemove = [16,13]
@@ -291,7 +236,7 @@ hpc = STRUCT(MKPOLS(diagram))
 riga_posta = STRUCT(NN(10)([hpc,T([1])(.2)]))
 riga_posta = STRUCT(NN(6)([riga_posta,T([3])(.2)]))
 
-posta = T([1,2,3])([16,1,1.2])(riga_posta)
+posta = T([1,2,3])([7.5,3.3,1.9])(riga_posta)
 
 posta = COLOR(Color4f([0.6,0.33,0.2]))(posta)
 
@@ -326,8 +271,8 @@ dom2D = PROD(AA(dom)([n2, 1]))
 domain = PROD([dom2D, S(1)(2*PI)(dom1D)])
 out = MAP(ROTATIONALSOLID(section))(domain)
 
-vaso1 = T([1,2,3])([19,1,.3])(out)
-vaso2 = T([1,2,3])([15,1,.3])(out)
+vaso1 = T([1,2,3])([6.5,4,.9])(out)
+vaso2 = T([1,2,3])([10.5,4,.9])(out)
 
 vasi = STRUCT([vaso1,vaso2])
 
@@ -335,7 +280,143 @@ vasi = COLOR(Color4f([0.22,0.55,0.33]))(vasi)
 
 ground_floor = STRUCT([ground_floor,vasi])
 
-VIEW(ground_floor)
+complesso = STRUCT([ground_floor,T([1,2,3])([3,3,3.6])(piani)])
 
 
+#Aggiungo il tetto dell'edificio
+#tetto 
+V = [[0,2.1],[42,2.1],[42,12.8],[0,12.8],[0,2.1]]
+CV = [[1,2,3,4]]
+V1 = [[19.5,2.1],[19.5,0],[22.5,0],[22.5,2.1],[19.5,2.1]]
+CV1 = [[1,2,3,4]]
+V2 = [[11.7,12.9],[11.7,12.7],[30.3,12.7],[30.3,12.9],[11.7,12.9]]
+CV2 = [[1,2,3,4]]
+t1 = STRUCT(MKPOLS([V,CV]))
+t2 = STRUCT(MKPOLS([V1,CV1]))
+t3 = STRUCT(MKPOLS([V2,CV2]))
+t1 = DIFFERENCE([t1,t3])
+
+tetto = STRUCT([t1,t2])
+tetto = PROD([tetto,Q(0.6)])
+tetto = T([1,2,3])([2,0.5,18.6])(tetto)
+
+tetto_b = S([1,2])([.8,.6])(tetto)
+tetto_b = T([1,2,3])([4.6,3,0.6])(tetto_b)
+
+tetto = STRUCT([tetto,tetto_b])
+tetto = COLOR(Color4f([(0.50),(0.12),(0.15)]))(tetto)
+
+
+complesso = STRUCT([complesso,tetto])
+
+#Aggiungo alla fine il prato, un recinto, ed una statua con il simbolo di batman!
+
+prato = PROD([Q(50),Q(40)])
+
+prato = TEXTURE('prato.jpg')(prato)
+
+#staccionata 
+V = [[0,0],[0.1,0],[0.1,0.8],[0.05,1],[0,0.8],[0.0]]
+CV = [[1,2,3,4,5]]
+
+palo = T([1])([0.2])(STRUCT(MKPOLS([V,CV])))
+
+tramezzi = PROD([Q(0.5),QUOTE([-0.2,0.1,-0.2,0.1])])
+
+porzione = PROD([STRUCT([tramezzi,palo]),Q(0.05)])
+
+porzione = MAP([S3,S1,S2])(porzione)
+porzione = COLOR(Color4f([0.52,0.25,0.05]))(porzione)
+
+staccionata = STRUCT(NN(40)([porzione,T([2])([.5])]))
+
+staccionata_a = T([1,2])([23.5,20])(staccionata) 
+staccionata_b = T([1,2])([26.5,20])(staccionata) 
+
+prato = STRUCT([prato,staccionata_a,staccionata_b])
+
+#stradina
+stradina = PROD([QUOTE([-23.5,3]),QUOTE([-20,20])])
+stradina = COLOR(Color4f([(0.52),(0.52),(0.52)]))(stradina)
+prato = STRUCT([prato,stradina])
+
+#inserisco statua batman
+def larPizza(r,R,angle=2*PI):
+   assert angle <= 2*PI
+   def larPizza0(shape=[24,36]):
+      V,CV = checkModel(larCrown(r,R,angle)(shape))
+      V += [[0,0,-r],[0,0,r]]
+      return V,[range(len(V))]
+   return larPizza0
+
+def cerchio (p):
+    u,v = p
+    return v*COS(u), v*SIN(u)
+
+def distanzaorigine(x,y) : return sqrt(x**2 + y**2)
+
+domain22D = PROD([INTERVALS(2*PI)(32),INTERVALS(5)(3)])
+circ = MAP(cerchio)(domain22D);
+
+circ = PROD([circ,Q(0.5)])
+
+recintol = larPizza(0.5,5)([8,48])
+recintol = STRUCT(MKPOLS(recintol))
+recintos = larPizza(0.5,4)([8,48])
+recintos = STRUCT(MKPOLS(recintos))
+recinto = DIFFERENCE([recintol,recintos])
+
+recinto = COLOR(GRAY)(T([3])([0.5])(recinto))
+circ = COLOR(Color4f([(1),(0.86),(0)]))(circ)
+
+piedistallo = STRUCT([recinto,circ])
+piedistallo = T([1,2])([10,30])(piedistallo)
+
+dom1D = INTERVALS(1)(20)
+
+b1 = BEZIER(S1)([[2.64, 2.34], [0.35, 2.95], [0.16, 5.04], [3.3, 5.58]])
+b2 = BEZIER(S1)([[2.64, 2.34], [2.06, 3.2], [2.98, 3.34], [3.68, 2.84]])
+b3 = BEZIER(S1)([[5.1, 2.32], [4.45, 3.28], [4.01, 3.25], [3.68, 2.84]])
+b4 = BEZIER(S1)([[5.1, 2.32], [5.46, 2.96], [6.15, 3.42], [6.52, 2.85]])
+b5 = BEZIER(S1)([[7.56, 2.34], [8.13, 3.04], [7.37, 3.43], [6.52, 2.85]])
+b6 = BEZIER(S1)([[7.56, 2.34], [9.92, 2.99], [10, 5.04], [6.9, 5.58]])
+b7 = BEZIER(S1)([[5.8, 4.72], [6.65, 4.28], [7.6, 5.11], [6.9, 5.58]])
+b8 = BEZIER(S1)([[5.8, 4.72], [5.66, 5.19], [5.65, 5.43], [5.59, 5.75]])
+b9 = BEZIER(S1)([[5.59, 5.75], [5.47, 5.63], [5.38, 5.53], [5.3, 5.42]])
+b10 = BEZIER(S1)([[4.9, 5.43], [5.06, 5.41], [5.23, 5.41], [5.3, 5.42]])
+b11 = BEZIER(S1)([[4.9, 5.43], [4.8, 5.53], [4.7, 5.65], [4.63, 5.78]])
+b12 = BEZIER(S1)([[4.43, 4.73], [4.48, 5.1], [4.58, 5.4], [4.63, 5.78]])
+b13 = BEZIER(S1)([[4.43, 4.73], [3.68, 4.29], [2.58, 5.06], [3.3, 5.58]])
+
+b1 = MAP(b1)(dom1D)
+b2 = MAP(b2)(dom1D)
+b3 = MAP(b3)(dom1D)
+b4 = MAP(b4)(dom1D)
+b5 = MAP(b5)(dom1D)
+b6 = MAP(b6)(dom1D)
+b7 = MAP(b7)(dom1D)
+b8 = MAP(b8)(dom1D)
+b9 = MAP(b9)(dom1D)
+b10 = MAP(b10)(dom1D)
+b11 = MAP(b11)(dom1D)
+b12 = MAP(b12)(dom1D)
+b13 = MAP(b13)(dom1D)
+
+batman_logo = STRUCT([b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13])
+batman_logo = SOLIDIFY(batman_logo)
+batman_logo = PROD([batman_logo,Q(0.2)])
+batman_logo = MAP([S1,S3,S2])(batman_logo)
+batman_logo = COLOR(BLACK)(batman_logo)
+batman_logo = T([1,2,3])([4.9,30,-1.8])(batman_logo)
+
+statua = STRUCT([piedistallo,batman_logo])
+statua_2 = T([1])([30])(statua)
+
+prato = STRUCT([prato,statua,statua_2])
+
+
+complesso = T([1,2])([2,5.2])(complesso)
+
+
+VIEW(STRUCT([prato,complesso]))
 
