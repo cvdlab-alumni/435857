@@ -417,6 +417,7 @@ prato = STRUCT([prato,statua,statua_2])
 
 complesso = T([1,2])([2,5.2])(complesso)
 
+ambiente = STRUCT([prato,complesso])
 
-VIEW(STRUCT([prato,complesso]))
+VIEW(ambiente)
 
