@@ -313,7 +313,7 @@ complesso = STRUCT([complesso,tetto])
 
 prato = PROD([Q(50),Q(40)])
 
-prato = TEXTURE('prato.jpg')(prato)
+prato = TEXTURE('435857/2014-05-16/python/texture/prato.jpg')(prato)
 
 #staccionata 
 V = [[0,0],[0.1,0],[0.1,0.8],[0.05,1],[0,0.8],[0.0]]
