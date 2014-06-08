@@ -25,8 +25,8 @@
             var scene = new THREE.Scene();
 
             // create a camera, which defines where we're looking at.
-      var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    var inspectedCamera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 10, 300);
+            var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            var inspectedCamera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 10, 300);
 
             // create a render and set the size
             var renderer = new THREE.WebGLRenderer();
@@ -178,7 +178,7 @@
 
             pin2.rotation.x = Math.PI/2;
 
-            //Aggiungo un oggetto al piano
+            //Aggiungo 2 oggetti al piano
 
             var sphere_Geometry = new THREE.SphereGeometry(radius_lamp*3,widthSegments,heightSegments);
             var sphere_Material = new THREE.MeshPhongMaterial({color: 0xff0000, metal: true, shininess: 100});
@@ -393,7 +393,6 @@
             }); 
 
             //Definisco le animazioni
-            //define animations
 
           var lampada_animation = new THREE.Object3D();
           lampada_animation.add(lampada);
@@ -402,129 +401,127 @@
 
           var interval = 100;
 
-          var cubeTween31 = new TWEEN.Tween(pin1.rotation)
+          var tween31 = new TWEEN.Tween(pin1.rotation)
             .to({z: (5/2)*Math.PI}, 500);
     
-          var cubeTween32 = new TWEEN.Tween(text_I.scale)
+          var tween32 = new TWEEN.Tween(text_I.scale)
             .to({y:.0001,z:.0001}, 500);
             
-          var cubeTween30 = new TWEEN.Tween(lampada_animation.position)
+          var tween30 = new TWEEN.Tween(lampada_animation.position)
             .to({x:2,y:-34,z: 0},500)
-            .chain(cubeTween31);
+            .chain(tween31);
   
-          var cubeTween29 = new TWEEN.Tween(lampada_animation.position)
+          var tween29 = new TWEEN.Tween(lampada_animation.position)
             .to({x:2,y:-34,z: 25},interval)
-            .chain(cubeTween30,cubeTween32);
+            .chain(tween30,tween32);
 
-          var cubeTween28 = new TWEEN.Tween(lampada_animation.position)
+          var tween28 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-4.9,y:-34.7,z: 27},interval)
-            .chain(cubeTween29);    
+            .chain(tween29);    
 
-          var cubeTween27 = new TWEEN.Tween(lampada_animation.position)
+          var tween27 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-11.8,y:-35.4,z: 28},interval)
-            .chain(cubeTween28);    
+            .chain(tween28);    
 
-          var cubeTween26 = new TWEEN.Tween(lampada_animation.position)
+          var tween26 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-18.7,y:-36.1,z: 28},interval)
-            .chain(cubeTween27);    
+            .chain(tween27);    
 
-          var cubeTween25 = new TWEEN.Tween(lampada_animation.position)
+          var tween25 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-25.6,y:-36.8,z: 27},interval)
-            .chain(cubeTween26);
+            .chain(tween26);
 
-          var cubeTween24 = new TWEEN.Tween(lampada_animation.position)
+          var tween24 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-29.05,y:-37.15,z: 20},interval)
-            .chain(cubeTween25);                  
+            .chain(tween25);                  
 
-          var cubeTween23 = new TWEEN.Tween(lampada_animation.position)
+          var tween23 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-32.5,y:-37.5,z: 10},interval)
-            .chain(cubeTween24);         
+            .chain(tween24);         
 
-          var cubeTween21 = new TWEEN.Tween(lampada_animation.position)
+          var tween21 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-32.5,y:-37.5,z:0}, interval)
-            .chain(cubeTween23)
+            .chain(tween23)
 
-          var cubeTween20 = new TWEEN.Tween(lampada_animation.position)
+          var tween20 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-39,y:-31,z:3.5}, interval)
-            .chain(cubeTween21);
+            .chain(tween21);
 
-          var cubeTween19 = new TWEEN.Tween(lampada_animation.position)
+          var tween19 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-45.5,y:-24.5,z:7}, interval)
-            .chain(cubeTween20);
+            .chain(tween20);
           
-          var cubeTween18 = new TWEEN.Tween(lampada_animation.position)
+          var tween18 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-52,y:-18,z:7}, interval)
-            .chain(cubeTween19);
+            .chain(tween19);
 
-          var cubeTween17 = new TWEEN.Tween(lampada_animation.position)
+          var tween17 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-58.5,y:-11.5,z:3.5}, interval)
-            .chain(cubeTween18);
+            .chain(tween18);
 
-          var cubeTween16 = new TWEEN.Tween(pin1.rotation)
+          var tween16 = new TWEEN.Tween(pin1.rotation)
             .to({z: Math.PI/2}, 1000)
-            .chain(cubeTween17);
+            .chain(tween17);
 
-          var cubeTween15 = new TWEEN.Tween(lampada_animation.position)
+          var tween15 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-65,y:-5,z:0}, interval)
-            .chain(cubeTween16);
+            .chain(tween16);
           
-          var cubeTween14 = new TWEEN.Tween(lampada_animation.position)
+          var tween14 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-67.5,y:2.5,z:3.5}, interval)
-            .chain(cubeTween15);
+            .chain(tween15);
 
-          var cubeTween13 = new TWEEN.Tween(lampada_animation.position)
+          var tween13 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-70,y:10,z:7}, interval)
-            .chain(cubeTween14);
+            .chain(tween14);
           
-          var cubeTween12 = new TWEEN.Tween(lampada_animation.position)
+          var tween12 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-72.5,y:17.5,z:7}, interval)
-            .chain(cubeTween13);
+            .chain(tween13);
 
-          var cubeTween11 = new TWEEN.Tween(lampada_animation.position)
+          var tween11 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-75,y:25,z:3.5}, interval)
-            .chain(cubeTween12);
+            .chain(tween12);
 
-          var cubeTween10 = new TWEEN.Tween(lampada_animation.position)
+          var tween10 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-77.5,y:32.5,z:0}, interval)
-            .chain(cubeTween11);
+            .chain(tween11);
           
-          var cubeTween9 = new TWEEN.Tween(lampada_animation.position)
+          var tween9 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-80,y:40,z:3.5}, interval)
-            .chain(cubeTween10);
+            .chain(tween10);
 
-          var cubeTween8 = new TWEEN.Tween(lampada_animation.position)
+          var tween8 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-82.5,y:47.5,z:7}, interval)
-            .chain(cubeTween9);
+            .chain(tween9);
           
-          var cubeTween7 = new TWEEN.Tween(lampada_animation.position)
+          var tween7 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-85,y:55,z:7}, interval)
-            .chain(cubeTween8);
+            .chain(tween8);
 
-          var cubeTween6 = new TWEEN.Tween(lampada_animation.position)
+          var tween6 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-87.5,y:62.5,z:3.5}, interval)
-            .chain(cubeTween7)
+            .chain(tween7)
   
-          var cubeTween5 = new TWEEN.Tween(lampada_animation.position)
+          var tween5 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-90,y:70,z:0}, interval)
-            .chain(cubeTween6)
+            .chain(tween6)
 
-          var cubeTween4 = new TWEEN.Tween(lampada_animation.position)
+          var tween4 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-92.5,y:77.5,z:3.5}, interval)
-            .chain(cubeTween5);
+            .chain(tween5);
 
-          var cubeTween3 = new TWEEN.Tween(lampada_animation.position)
+          var tween3 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-95,y:85,z:7}, interval)
-            .chain(cubeTween4);
+            .chain(tween4);
           
-          var cubeTween2 = new TWEEN.Tween(lampada_animation.position)
+          var tween2 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-97.5,y:92.5,z:7}, interval)
-            .chain(cubeTween3);
+            .chain(tween3);
 
-          var cubeTween1 = new TWEEN.Tween(lampada_animation.position)
+          var tween1 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-100,y:100,z:3.5}, interval)
-            .chain(cubeTween2);
-            //.start();
-
+            .chain(tween2);
 
             Animation.add(controls, 'animation').onChange(function (e) {
                 if (controls.animation) {
@@ -534,7 +531,7 @@
                     lampada_animation.position.set(-100,100,0);
                     lampada.position.set(-100,100,0);
                     text_I.scale.set(1,1,1);
-                    cubeTween1.start();
+                    tween1.start();
                 };
 
             });
@@ -545,12 +542,7 @@
                 mirrorSphere_1.visible = false;
                 mirrorSphereCamera_1.updateCubeMap( renderer, scene );
                 mirrorSphere_1.visible = true;
-                mirrorSphere_1.rotation.z += 0.05;
-
-                //mirrorSphere_2.visible = false;
-                //mirrorSphereCamera_2.updateCubeMap( renderer, scene );
-                //mirrorSphere_2.visible = true;
-                //mirrorSphere_2.rotation.z -= 0.05;
+                mirrorSphere_1.rotation.z += 0.05;     
 
                 TWEEN.update();
                 trackballControls.update();
