@@ -37,12 +37,13 @@
 
             //Costruisco il piano
             var planeGeometry = new THREE.PlaneGeometry(200,200);
-            var planeMaterial =  new THREE.MeshPhongMaterial({color: 0x3F77AB});
+            var planeMaterial =  new THREE.MeshPhongMaterial({map: THREE.ImageUtils.loadTexture("cielo.jpg")});
             var plane = new THREE.Mesh(planeGeometry,planeMaterial);
             plane.receiveShadow = true;
 
             // rotate and position the plane
             plane.position.set(0,0,0);
+            plane.rotation.z = Math.PI/2;
             scene.add(plane);
                         
             //SphereGeometry(radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength)
@@ -406,9 +407,7 @@
     
           var cubeTween32 = new TWEEN.Tween(text_I.scale)
             .to({y:.0001,z:.0001}, 500);
-            //.delay(4200);
-            //.start();
-
+            
           var cubeTween30 = new TWEEN.Tween(lampada_animation.position)
             .to({x:2,y:-34,z: 0},500)
             .chain(cubeTween31);
@@ -440,12 +439,6 @@
           var cubeTween23 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-32.5,y:-37.5,z: 10},interval)
             .chain(cubeTween24);         
-
-          //var cubeTween22 = new TWEEN.Tween(pin1.rotation)
-            //.to({z: Math.PI/4}, 500)
-            //.delay(3500)
-            //.chain(cubeTween23)
-            //.start();
 
           var cubeTween21 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-32.5,y:-37.5,z:0}, interval)
@@ -542,7 +535,6 @@
                     lampada.position.set(-100,100,0);
                     text_I.scale.set(1,1,1);
                     cubeTween1.start();
-                    //cubeTween32.start();
                 };
 
             });
