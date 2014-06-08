@@ -188,20 +188,13 @@
 
             var sphereGeom =  new THREE.SphereGeometry( 15, 32, 32); 
             mirrorSphereCamera_1 = new THREE.CubeCamera( 0.1, 5000, 512 );
-            //mirrorSphereCamera_2 = new THREE.CubeCamera( 0.1, 5000, 512 );
             scene.add( mirrorSphereCamera_1 );
-            //scene.add( mirrorSphereCamera_2 );
             var mirrorSphereMaterial_1 = new THREE.MeshBasicMaterial( { envMap: mirrorSphereCamera_1.renderTarget } );
-            //var mirrorSphereMaterial_2 = new THREE.MeshBasicMaterial( { envMap: mirrorSphereCamera_2.renderTarget } );
             mirrorSphere_1 = new THREE.Mesh( sphereGeom, mirrorSphereMaterial_1 );
-            //mirrorSphere_2 = new THREE.Mesh( sphereGeom, mirrorSphereMaterial_2 );
             mirrorSphere_1.position.set(-5,0,50);
-            //mirrorSphere_2.position.set(10,85,10);
             mirrorSphereCamera_1.position = mirrorSphere_1.position;
-            //mirrorSphereCamera_2.position = mirrorSphere_2.position;
             scene.add(mirrorSphere_1);
-            //scene.add(mirrorSphere_2);
-
+            
             //Aggiungo un arcobaleno su sfondo
             var r_int = 80;
             var r_ext = r_int+2;
@@ -412,8 +405,8 @@
             .to({z: (5/2)*Math.PI}, 500);
     
           var cubeTween32 = new TWEEN.Tween(text_I.scale)
-            .to({y:.0001,z:.0001}, 500)
-            .delay(4200);
+            .to({y:.0001,z:.0001}, 500);
+            //.delay(4200);
             //.start();
 
           var cubeTween30 = new TWEEN.Tween(lampada_animation.position)
@@ -422,7 +415,7 @@
   
           var cubeTween29 = new TWEEN.Tween(lampada_animation.position)
             .to({x:2,y:-34,z: 25},interval)
-            .chain(cubeTween30);
+            .chain(cubeTween30,cubeTween32);
 
           var cubeTween28 = new TWEEN.Tween(lampada_animation.position)
             .to({x:-4.9,y:-34.7,z: 27},interval)
@@ -549,7 +542,7 @@
                     lampada.position.set(-100,100,0);
                     text_I.scale.set(1,1,1);
                     cubeTween1.start();
-                    cubeTween32.start();
+                    //cubeTween32.start();
                 };
 
             });
