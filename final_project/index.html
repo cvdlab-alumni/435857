@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My Apartment - tour</title>
+		<style>
+			html, body {
+				width: 100%;
+				height: 100%;
+			}
+
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				overflow: hidden;
+				font-family: arial;
+			}
+
+            #advertisement {
+                position: absolute;
+                width: 50%;
+                height: 5%;
+                left:25%;
+                top:25%;
+                color: #ffffff;
+                text-align: center;
+                background-color: rgba(0,0,0,0.5);
+            }
+
+            #abducted {
+                position: absolute;
+                width: 50%;
+                height: 10%;
+                left:25%;
+                top:25%;
+                color: #ffffff;
+                text-align: center;
+                background-color: rgba(0,0,0,0.5);
+            }
+
+            #pointer {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                margin-top: -15px;
+                margin-left: -15px;
+                width: 30px;
+                height: 30px;
+                display: none;
+                background-image: url("assets/textures/general/dot.gif");
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+		</style>
+	</head>
+	   <body>
+
+        <div id="advertisement">
+        <span style="font-size:40px">The tenant has a bad feeling about this...</span>
+        </div>
+
+        <div id="abducted">
+        <span style="font-size:40px">You've been abducted!! 
+                                     Next time (yes because you've another chance) 
+                                     run away or hide in your house</span>
+        </div>
+
+        <video id="monitor" autoplay width="160" height="120" style="visibility: hidden; float:left; position: absolute"></video>
+        <canvas id="videoImage" width="160" height="120" style="visibility: hidden; float:left; position: absolute"></canvas>
+            
+        <script>
+        document.getElementById("advertisement").style.display="none";
+        document.getElementById("abducted").style.display="none";
+
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        window.URL = window.URL || window.webkitURL;
+
+        var camvideo = document.getElementById('monitor');
+
+        function gotStream(stream) 
+        {
+            if (window.URL) 
+            {   camvideo.src = window.URL.createObjectURL(stream);   } 
+            else // Opera
+            {   camvideo.src = stream;   }
+
+            camvideo.onerror = function(e) 
+            {   stream.stop();   };
+
+            stream.onended = noStream;
+        }
+
+        function noStream(e) 
+        {
+            var msg = 'No camera available.';
+            if (e.code == 1) 
+            {   msg = 'User denied access to use camera.';   }
+            document.getElementById('errorMessage').textContent = msg;
+        }
+
+        </script>
+
+        <div id="pointer"></div>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+  		<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+  		<script src="http://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script>
+  		<script src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+  		<script type="text/javascript" src="assets/libs/OBJLoader.js"></script> 
+  		<script type="text/javascript" src="assets/libs/MTLLoader.js"></script> 
+  		<script type="text/javascript" src="assets/libs/OBJMTLLoader.js"></script> 
+  		<script src="assets/libs/TrackballControls.js"></script>
+  		<script src="assets/scripts/support_myapartment.js"></script>
+  		<script src="assets/libs/tween.min.js"></script>
+   	    <script src="assets/libs/PointerLockControls.js"></script>
+        <script src="assets/scripts/support_audio.js"></script>
+        <script src="assets/libs/ParticleEngine.js"></script>
+        <script src="assets/libs/ParticleEngineExamples.js"></script>
+        <script src="assets/scripts/create_walls_and_floors.js"></script>
+        <script src="assets/scripts/create_camera_and_projector.js"></script>
+        <script src="assets/scripts/create_wood_stuff.js"></script>
+        <script src="assets/scripts/create_grammofono.js"></script>
+        <script src="assets/scripts/create_kitchen.js"></script>
+        <script src="assets/scripts/create_tv.js"></script>
+        <script src="assets/scripts/create_webcam.js"></script>
+        <script src="assets/scripts/create_newtonb.js"></script>
+        <script src="assets/scripts/create_sveglia.js"></script>
+        <script src="assets/scripts/create_bathroom_stuff.js"></script>
+        <script src="assets/scripts/create_lamp_and_switch.js"></script>
+        <script src="assets/scripts/initialize_entrance.js"></script>
+        <script src="assets/scripts/initialize_walls_and_pavements.js"></script>
+        <script src="assets/scripts/initialize_lights.js"></script>
+        <script src="assets/scripts/initialize_objs.js"></script>
+        <script src="assets/scripts/initialize_wall_stuff.js"></script>
+        <script src="assets/scripts/initialize_windows.js"></script>
+        <script src="assets/scripts/initialize_doors.js"></script>
+        <script src="assets/scripts/initialize_grammofono_exposer.js"></script>
+        <script src="assets/scripts/initialize_cinepresa_proiettore.js"></script>
+        <script src="assets/scripts/initialize_kitchen_stuff.js"></script>
+        <script src="assets/scripts/load_house_struct.js"></script>
+        <script src="assets/scripts/initialize_room1_stuff.js"></script>
+        <script src="assets/scripts/initialize_room2_stuff.js"></script>
+        <script src="assets/scripts/initialize_ufo.js"></script>
+        <script src="assets/scripts/initialize_fpc.js"></script>
+        <script src="assets/scripts/initialize_outside.js"></script>
+        <script src="assets/scripts/fun_render.js"></script>
+        <script src="assets/scripts/controls.js"></script>
+
+		<script>
+            //DICHIARAZIONE DELLE VARIABILI
+            var interactable = [];
+            var camera, scene, renderer,axisHelper;
+            var geometry, material, mesh;
+            var video, videoImage, videoImageContext, videoTexture,video_web,annie,annie2;
+            var controls;
+            var grammofono,exposer,forn,appoggiotvcucina,cinepresa,proiettore;
+            var box1,box2,box3,espositore;
+            var clock = new THREE.Clock();
+            var mirrorCube, mirrorCubeCamera,mirrorCube2, mirrorCubeCamera2;
+            var house = new THREE.Object3D();
+            var objects = [];
+            var mirror1_ena = false;
+            var mirror2_ena = true;
+            var aliensymbol;
+            var aliens = false;
+            var step=0;
+            var sole,directLight,extlight1,extlight2;
+            var giorno,notte;
+            var ufo,aliensound;
+            var interruttore1,interruttore2,interruttore3,interruttore4,interruttore5,interruttore6;
+            var fin,fin2,fin3,fin4,fin5,fin6,fin7,fin8;
+            var door_b1,door_b2,door_b3,door_b4;
+            var door1,door2,door3,door4,door5,door6,door7;
+            var ray;
+            var armadio,pc,balls;
+            var sveglia,gabin,lavatr,ring;
+            var roof,scala;
+            var FPCon = false;
+            var dinamic = true;
+            var projector;
+            //var clouds = false;
+            //var engine2;
+
+            var urls_day = ["assets/textures/general/lostatseaday_front.jpg",
+                            "assets/textures/general/lostatseaday_back.jpg",
+                            "assets/textures/general/lostatseaday_top.jpg",
+                            "",
+                            "assets/textures/general/lostatseaday_left.jpg",
+                            "assets/textures/general/lostatseaday_right.jpg"];
+            var urls_night = ["assets/textures/general/lostatseanight_front.jpg",
+                            "assets/textures/general/lostatseanight_back.jpg",
+                            "assets/textures/general/lostatseanight_top.jpg",
+                            "",
+                            "assets/textures/general/lostatseanight_left.jpg",
+                            "assets/textures/general/lostatseanight_right.jpg"];
+
+
+		init();
+        render();
+
+		function init() {
+
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1500 );
+
+        scene = new THREE.Scene();
+        
+        camera.position.set(100,50,-250);
+        camera.up = new THREE.Vector3(0,1,0);
+        camera.lookAt(scene.position);
+
+        axisHelper = new THREE.AxisHelper(3);
+        scene.add(axisHelper);
+        
+        trackballControls = new THREE.TrackballControls(camera);
+
+        projector = new THREE.Projector();
+
+        //skybox
+        giorno = add_skybox(urls_day);
+        notte = add_skybox(urls_night);
+        scene.add(giorno);
+        //carico struttura appartamento
+        load_house_struct(house);
+        //GRADINI INGRESSO (5 gradini)
+        initialize_entrance(house);     
+        //TEXTURE PARETI ESTERNE
+        initialize_walls_and_pavements(house);
+        //Gestione luci
+        initialize_lights(house,scene);
+        //import oggetto
+        initialize_objs(house,scene);
+        //inserimento robe sui muri
+        initialize_wall_stuff(scene);
+        //mirrors
+        initialize_mirror_ing(scene);
+        initialize_mirror_bath(scene);
+        //INSERIMENTO PORTE E FINESTRE
+        //create_windows(spess_b,largh_b,alt_b,largh_hole,h_hole,material,pos_perno,spess_glass,opacity)
+        initialize_windows(house);
+        //function create_door_b(spess_b,largh_b,alt_b,largh_hole,h_hole,texture,spess_glass,opacity) {
+        initialize_doors(house);
+        //Aggiungo elemento cinepresa
+        initialize_cinepresa_proiettore(scene);
+        //Aggiungo grammofono
+        initialize_grammofono_exposer(scene);
+        //import obj for the kitchen
+        initialize_kitchen_stuff(scene);
+        //cameretta
+        initialize_room1_stuff(scene);
+        //camera da letto e bagno + campanello
+        initialize_room2_stuff(scene); 
+        //nuvole
+        //initialize_clouds();
+        ////////////////////////////////////////////////////////////////////////////
+
+        house.rotation.x = -Math.PI/2;  
+	    scene.add(house);
+
+	    renderer = new THREE.WebGLRenderer();
+    	renderer.setClearColor( 0xffffff );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+
+        window.addEventListener( 'resize', onWindowResize, false );
+        document.addEventListener('mousedown',onDocumentMouseDown, false);
+					
+        interactable = [door1.contact,door2.contact,door3.contact,door4.contact,door5.contact,
+                            door6.contact,door7.contact,door_b1.contact,door_b2.contact,door_b3.contact,
+                            door_b4.contact,fin.contact,fin2.contact,fin3.contact,fin4.contact,fin5.contact,fin6.contact,fin7.contact,
+                            fin8.contact,cinepresa.contact,proiettore.contact,
+                            box1.contact,box2.contact,box3.contact,forn.contact,forn.forno.contact,
+                            forn.contact2,armadio.complex.contact,appoggiotvcucina.obj_tv.contact,
+                            pc.contact,balls.contact,sveglia.contact,gabin.contact,lavatr.contact1,
+                            lavatr.contact2,interrutore1.contact,interrutore2.contact,interrutore3.contact,interrutore4.contact,
+                            interrutore5.contact,interrutore6.contact,ring.contact];
+        
+    } 
+
+		</script>
+	</body>
+</html>
